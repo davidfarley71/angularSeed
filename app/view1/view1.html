@@ -1,1 +1,21 @@
-<p>This is the partial for view 1.</p>
+<p>Please enter the city, or zip, you want to get the weather for.</p>
+<div>
+    <input ng-keyup="$event.keyCode == 13 ? getByCity() : null" type="text" ng-model="city" placeholder="city...">
+    <button ng-keyup="event.keyCode === 13" ng-click="getByCity()">Get weather by city</button>
+</div>
+<div>
+    <input ng-keyup="$event.keyCode == 13 ? checkCache() : null"  type="number" ng-model="zip" placeholder="zip">
+    <button ng-keyup="event.keyCode === 13" ng-click="checkCache()">Get weather by zip</button>
+    <h4 ng-if="fromCache">Data pulled from cache.</h4>
+</div>
+
+<ul ng-if="showStats">
+    <li>{{weather.name}}</li>
+    <li>{{weather.weather[0].description}}</li>
+    <li>Temperature min: {{weather.main.temp}} Fahrenheit </li>
+    <li>Temperature min: {{weather.main.temp_min}} Fahrenheit </li>
+    <li>Temperature max: {{weather.main.temp_max}} Fahrenheit </li>
+    <li>Pressure: {{weather.main.pressure}}</li>
+    <li>Humidity: {{weather.main.humidity}}</li>
+    <li>WindSpeed:{{weather.wind.speed}}</li>
+</ul>
