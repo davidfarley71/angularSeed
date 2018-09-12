@@ -19,3 +19,9 @@
     <li>Humidity: {{weather.main.humidity}}</li>
     <li>WindSpeed:{{weather.wind.speed}}</li>
 </ul>
+
+<div>
+    <input ng-keyup="$event.keyCode == 13 ? sendDataToLambdaFunction() : null"  type="number" ng-model="zip" placeholder="sendDataToLambdaFunction">
+    <button ng-keyup="event.keyCode === 13" ng-click="sendDataToLambdaFunction()">sendDataToLambdaFunction</button>
+   
+</div>
